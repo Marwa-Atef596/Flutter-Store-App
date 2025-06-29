@@ -5,8 +5,10 @@ import 'package:flutter_store_app/core/routing/routes.dart';
 import 'package:flutter_store_app/core/theming/app_colors.dart';
 
 class StoreApp extends StatelessWidget {
-  const StoreApp({super.key, required this.appRouter});
+  const StoreApp({super.key, required this.appRouter, this.isLoggedIn});
   final AppRouter appRouter;
+  final bool? isLoggedIn;
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -17,7 +19,8 @@ class StoreApp extends StatelessWidget {
             primaryColor: AppColors.mainDark,
             scaffoldBackgroundColor: AppColors.white),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routes.loginScreen,
+        initialRoute:
+            isLoggedIn == true ? Routes.homeScreen : Routes.loginScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );
