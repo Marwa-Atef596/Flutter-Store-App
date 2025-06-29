@@ -1,8 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_store_app/core/helper/logout_helper.dart';
+import 'package:flutter_store_app/features/home/ui/widgets/category_screen.dart';
+import 'package:flutter_store_app/features/home/ui/widgets/custom_bottom_navigation_bar.dart';
+import 'package:flutter_store_app/features/home/ui/widgets/favorite_screen.dart';
+import 'package:flutter_store_app/features/home/ui/widgets/home_screen_body.dart';
+import 'package:flutter_store_app/features/home/ui/widgets/profile_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _currentIndex = 0;
+
+  final List<Widget> _screens = [
+    HomeScreenBody(),
+    FavoriteScreen(),
+    CategoryScreen(),
+    ProfileScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -10,18 +28,14 @@ class HomeScreen extends StatelessWidget {
       child: PopScope(
         canPop: false,
         child: Scaffold(
-          appBar: AppBar(
-            title: Text('Home'),
-          ),
-          body: Column(
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    logout(context);
-                  },
-                  child: Text('data'))
-            ],
-          ),
+          body: _screens[_currentIndex],
+          bottomNavigationBar: CustomBottomNavigation(
+              currentIndex: _currentIndex,
+              onTap: (index) {
+                setState(() {
+                  _currentIndex = index;
+                });
+              }),
         ),
       ),
     );
