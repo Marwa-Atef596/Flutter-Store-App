@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_store_app/features/sign%20up/data/model/sign_up_request_body.dart';
 import 'package:flutter_store_app/features/sign%20up/data/repos/signup_repo.dart';
 import 'package:flutter_store_app/features/sign%20up/logic/cubit/sign_up_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
   final SignupRepo _signupRepo;
@@ -27,9 +28,11 @@ class SignUpCubit extends Cubit<SignUpState> {
       ),
     );
 
-    response.when(success: (signUpResponse) {
+    response.when(success: (signUpResponse) async {
       debugPrint('Registered user ID: ${signUpResponse.userId}');
 
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setInt('userId', signUpResponse.userId);
       emit(SignUpState.success(signUpResponse));
     }, failure: (error) {
       emit(

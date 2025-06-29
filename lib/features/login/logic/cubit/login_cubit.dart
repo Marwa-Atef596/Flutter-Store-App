@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_store_app/features/login/data/model/login_request_body.dart';
 import 'package:flutter_store_app/features/login/data/repo/login_repo.dart';
 import 'package:flutter_store_app/features/login/logic/cubit/login_state.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo _loginRepo;
@@ -23,7 +24,11 @@ class LoginCubit extends Cubit<LoginState> {
       password: passwordController.text,
     ));
 
-    response.when(success: (data) {
+    response.when(success: (data) async {
+      //save login
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('token', data.token);
+
       emit(LoginState.success(data));
     }, failure: (error) {
       emit(

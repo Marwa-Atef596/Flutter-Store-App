@@ -1,3 +1,5 @@
+// ignore_for_file: unreachable_switch_default
+
 import 'package:dio/dio.dart';
 import 'api_error_model.dart';
 

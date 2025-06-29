@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_store_app/core/helper/password_validation.dart';
 import 'package:flutter_store_app/core/helper/spacing.dart';
 import 'package:flutter_store_app/core/widgets/app_text_form_field.dart';
 import 'package:flutter_store_app/features/login/logic/cubit/login_cubit.dart';

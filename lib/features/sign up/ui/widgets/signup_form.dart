@@ -24,7 +24,7 @@ class _SignupFormState extends State<SignupForm> {
         children: [
           AppTextFormField(
             text: 'Name',
-            hintText: 'Enter you\'r Name',
+            hintText: 'Enter your Name',
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid name';
@@ -35,13 +35,13 @@ class _SignupFormState extends State<SignupForm> {
           verticalSpace(18),
           AppTextFormField(
             text: 'Email',
-            hintText: 'Enter you\'r Email',
+            hintText: 'Enter your Email',
             validator: validateEmail,
             controller: context.read<SignUpCubit>().emailController,
           ),
           verticalSpace(18),
           AppTextFormField(
-            hintText: 'Enter you\'r password',
+            hintText: 'Enter your password',
             text: 'Password',
             isObscureText: isObscure,
             suffixIcon: GestureDetector(
