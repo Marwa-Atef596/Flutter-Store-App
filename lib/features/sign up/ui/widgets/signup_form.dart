@@ -1,39 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_store_app/core/helper/email_validation.dart';
 import 'package:flutter_store_app/core/helper/password_validation.dart';
 import 'package:flutter_store_app/core/helper/spacing.dart';
 import 'package:flutter_store_app/core/widgets/app_text_form_field.dart';
-import 'package:flutter_store_app/features/login/logic/cubit/login_cubit.dart';
+import 'package:flutter_store_app/features/sign%20up/logic/cubit/sign_up_cubit.dart';
 
-class NameAndPassword extends StatefulWidget {
-  const NameAndPassword({super.key});
+class SignupForm extends StatefulWidget {
+  const SignupForm({super.key});
 
   @override
-  State<NameAndPassword> createState() => _NameAndPasswordState();
+  State<SignupForm> createState() => _SignupFormState();
 }
 
-class _NameAndPasswordState extends State<NameAndPassword> {
+class _SignupFormState extends State<SignupForm> {
   bool isObscure = true;
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: context.read<LoginCubit>().formKey,
+      key: context.read<SignUpCubit>().formKey,
       child: Column(
         children: [
           AppTextFormField(
-            hintText: 'Enter your name',
             text: 'Name',
-            controller: context.read<LoginCubit>().nameController,
+            hintText: 'Enter you\'r Name',
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Please enter a valid name';
               }
             },
+            controller: context.read<SignUpCubit>().nameController,
           ),
-          verticalSpace(20),
+          verticalSpace(18),
           AppTextFormField(
-            hintText: 'Enter your password',
+            text: 'Email',
+            hintText: 'Enter you\'r Email',
+            validator: validateEmail,
+            controller: context.read<SignUpCubit>().emailController,
+          ),
+          verticalSpace(18),
+          AppTextFormField(
+            hintText: 'Enter you\'r password',
             text: 'Password',
             isObscureText: isObscure,
             suffixIcon: GestureDetector(
@@ -46,20 +54,8 @@ class _NameAndPasswordState extends State<NameAndPassword> {
                 isObscure ? Icons.visibility_off : Icons.visibility,
               ),
             ),
-            controller: context.read<LoginCubit>().passwordController,
-            validator: (value) {
-              final password = value?.trim() ?? '';
-
-              if (password.isEmpty) {
-                return 'Password is required';
-              }
-
-              if (password.length < 6) {
-                return 'Password must be at least 6 characters long';
-              }
-
-              return null; // If all checks pass
-            },
+            controller: context.read<SignUpCubit>().passwordController,
+            validator: validatePassword,
           ),
         ],
       ),
