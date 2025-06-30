@@ -12,25 +12,29 @@ class HomeScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 10.w,
-        vertical: 16.h,
-      ),
-      child: Column(
-        children: [
-          CustomAppBar(
-            title: 'Discover',
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 16.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomAppBar(title: 'Discover'),
+                  CustomSearchText(),
+                  verticalSpace(30),
+                  CategoryListView(),
+                  verticalSpace(10),
+                ],
+              ),
+            ),
           ),
-          CustomSearchText(),
-          verticalSpace(30),
-          CategoryListView(),
-          verticalSpace(10),
-          Expanded(
-            child: ProductGridView(),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            sliver: ProductGridView(),
           ),
         ],
       ),
-    ));
+    );
   }
 }
