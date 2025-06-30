@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_store_app/core/helper/spacing.dart';
 import 'package:flutter_store_app/core/theming/app_colors.dart';
 import 'package:flutter_store_app/core/widgets/app_text_form_field.dart';
+import 'package:flutter_store_app/features/home/logic/cubit/home_cubit.dart';
 
 class CustomSearchText extends StatefulWidget {
   const CustomSearchText({
@@ -14,8 +16,6 @@ class CustomSearchText extends StatefulWidget {
 }
 
 class _CustomSearchTextState extends State<CustomSearchText> {
-  TextEditingController searchText = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -24,7 +24,7 @@ class _CustomSearchTextState extends State<CustomSearchText> {
         Expanded(
           child: AppTextFormField(
             text: '',
-            controller: searchText,
+            controller: context.read<HomeCubit>().searchText,
             hintText: 'Search for products...',
             validator: (value) {
               if (value == null || value.isEmpty) {
