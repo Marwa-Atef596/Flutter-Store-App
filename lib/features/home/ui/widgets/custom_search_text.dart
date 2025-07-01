@@ -16,6 +16,32 @@ class CustomSearchText extends StatefulWidget {
 }
 
 class _CustomSearchTextState extends State<CustomSearchText> {
+  bool _showClear = false;
+  late TextEditingController searchController;
+  late VoidCallback _listener;
+
+  @override
+  void initState() {
+    super.initState();
+    final cubit = context.read<HomeCubit>();
+    searchController = cubit.searchText;
+
+    _listener = () {
+      if (!mounted) return; // 👈 Safe check before setState
+      setState(() {
+        _showClear = searchController.text.isNotEmpty;
+      });
+    };
+
+    searchController.addListener(_listener);
+  }
+
+  @override
+  void dispose() {
+    searchController.removeListener(() {});
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,8 +49,11 @@ class _CustomSearchTextState extends State<CustomSearchText> {
       children: [
         Expanded(
           child: AppTextFormField(
+            onChanged: (query) {
+              context.read<HomeCubit>().searchProduct(query);
+            },
             text: '',
-            controller: context.read<HomeCubit>().searchText,
+            controller: searchController,
             hintText: 'Search for products...',
             validator: (value) {
               if (value == null || value.isEmpty) {
@@ -32,13 +61,21 @@ class _CustomSearchTextState extends State<CustomSearchText> {
               }
               return null;
             },
-            suffixIcon: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.search,
-                size: 25.sp,
-              ),
-            ),
+            suffixIcon: _showClear
+                ? IconButton(
+                    icon: Icon(
+                      Icons.clear,
+                      size: 25.sp,
+                    ),
+                    onPressed: () {
+                      searchController.clear();
+                      context.read<HomeCubit>().searchProduct('');
+                    },
+                  )
+                : Icon(
+                    Icons.search,
+                    size: 25.sp,
+                  ),
           ),
         ),
         horizontalSpace(10),

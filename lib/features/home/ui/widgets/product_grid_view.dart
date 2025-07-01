@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_store_app/core/theming/app_colors.dart';
+import 'package:flutter_store_app/core/theming/app_styles.dart';
 import 'package:flutter_store_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:flutter_store_app/features/home/logic/cubit/home_state.dart';
 import 'package:flutter_store_app/features/home/ui/widgets/card_item.dart';
@@ -12,7 +13,6 @@ class ProductGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final products = context.read<HomeCubit>().productList;
-
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return state.when(
@@ -34,6 +34,16 @@ class ProductGridView extends StatelessWidget {
   }
 
   Widget _buildGrid(List products) {
+    if (products.isEmpty) {
+      return SliverToBoxAdapter(
+        child: Center(
+          child: Text(
+            'No products found!',
+            style: AppStyles.font16GrayRegular,
+          ),
+        ),
+      );
+    }
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
         (context, index) {

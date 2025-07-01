@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_store_app/core/theming/app_colors.dart';
 import 'package:flutter_store_app/core/theming/app_styles.dart';
+import 'package:flutter_store_app/features/home/logic/cubit/home_cubit.dart';
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({super.key});
@@ -12,6 +14,7 @@ class CategoryListView extends StatefulWidget {
 
 class _CategoryListViewState extends State<CategoryListView> {
   final List<String> categories = [
+    'All',
     'Electronics',
     'Jewelery',
     'Men\'s Clothing',
@@ -36,6 +39,9 @@ class _CategoryListViewState extends State<CategoryListView> {
               setState(() {
                 selectedIndex = index;
               });
+
+              final selectedCategory = categories[index];
+              context.read<HomeCubit>().filterByCategory(selectedCategory);
             },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),

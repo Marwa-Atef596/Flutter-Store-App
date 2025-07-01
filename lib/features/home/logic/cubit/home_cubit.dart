@@ -1,7 +1,6 @@
 // ignore_for_file: depend_on_referenced_packages, unused_element
 
 import 'dart:convert';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_store_app/features/home/data/model/product_model.dart';
@@ -16,6 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   TextEditingController searchText = TextEditingController();
 
+  late List<ProductModel> _allFetshedProducts = [];
   late List<ProductModel> productList = [];
   late List<ProductModel> favoriteList = [];
 
@@ -25,14 +25,36 @@ class HomeCubit extends Cubit<HomeState> {
     final response = await _homeProductRepo.getAllProducts();
 
     response.when(success: (data) async {
-      productList.addAll(data);
+      _allFetshedProducts = data;
+      productList = List.from(data);
       await loadFavoritesFromPrefs();
-      emit(HomeState.success(data));
+      emit(HomeState.success(productList));
     }, failure: (error) {
-      emit(
-        HomeState.error(error: error.apiErrorModel.message ?? ''),
-      );
+      emit(HomeState.error(error: error.apiErrorModel.message ?? ''));
     });
+  }
+
+  void searchProduct(String query) {
+    if (query.trim().isEmpty) {
+      productList = List.from(_allFetshedProducts); // show all
+    } else {
+      productList = _allFetshedProducts.where((product) {
+        return product.title.toLowerCase().contains(query.toLowerCase());
+      }).toList();
+    }
+    emit(HomeState.success(productList));
+  }
+
+  void filterByCategory(String category) {
+    if (category.toLowerCase() == 'all') {
+      productList = List.from(_allFetshedProducts);
+    } else {
+      productList = _allFetshedProducts
+          .where((product) =>
+              product.category.toLowerCase() == category.toLowerCase())
+          .toList();
+    }
+    emit(HomeState.success(productList));
   }
 
   Future<void> addFavorite(ProductModel product) async {
@@ -40,7 +62,7 @@ class HomeCubit extends Cubit<HomeState> {
     if (isFav) {
       favoriteList.removeWhere((e) => e.id == product.id);
     } else {
-      final freshProduct = productList.firstWhere(
+      final freshProduct = _allFetshedProducts.firstWhere(
         (element) => element.id == product.id,
         orElse: () => product,
       );
