@@ -22,6 +22,7 @@ mixin _$HomeState<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(List<ProductModel> favorites) favoriteUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$HomeState<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$HomeState<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(List<ProductModel> favorites)? favoriteUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$HomeState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$HomeState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$HomeState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +140,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(List<ProductModel> favorites) favoriteUpdated,
   }) {
     return initial();
   }
@@ -145,6 +152,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
   }) {
     return initial?.call();
   }
@@ -156,6 +164,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(List<ProductModel> favorites)? favoriteUpdated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +180,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
   }) {
     return initial(this);
   }
@@ -182,6 +192,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +204,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +263,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(List<ProductModel> favorites) favoriteUpdated,
   }) {
     return loading();
   }
@@ -262,6 +275,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
   }) {
     return loading?.call();
   }
@@ -273,6 +287,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(List<ProductModel> favorites)? favoriteUpdated,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -288,6 +303,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
   }) {
     return loading(this);
   }
@@ -299,6 +315,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
   }) {
     return loading?.call(this);
   }
@@ -310,6 +327,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -396,6 +414,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(List<ProductModel> favorites) favoriteUpdated,
   }) {
     return success(data);
   }
@@ -407,6 +426,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
   }) {
     return success?.call(data);
   }
@@ -418,6 +438,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(List<ProductModel> favorites)? favoriteUpdated,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -433,6 +454,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
   }) {
     return success(this);
   }
@@ -444,6 +466,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
   }) {
     return success?.call(this);
   }
@@ -455,6 +478,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -548,6 +572,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String error) error,
+    required TResult Function(List<ProductModel> favorites) favoriteUpdated,
   }) {
     return error(this.error);
   }
@@ -559,6 +584,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
+    TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
   }) {
     return error?.call(this.error);
   }
@@ -570,6 +596,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String error)? error,
+    TResult Function(List<ProductModel> favorites)? favoriteUpdated,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -585,6 +612,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
   }) {
     return error(this);
   }
@@ -596,6 +624,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
   }) {
     return error?.call(this);
   }
@@ -607,6 +636,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -625,5 +655,173 @@ abstract class Error<T> implements HomeState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<T, _$ErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FavoriteUpdatedImplCopyWith<T, $Res> {
+  factory _$$FavoriteUpdatedImplCopyWith(_$FavoriteUpdatedImpl<T> value,
+          $Res Function(_$FavoriteUpdatedImpl<T>) then) =
+      __$$FavoriteUpdatedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({List<ProductModel> favorites});
+}
+
+/// @nodoc
+class __$$FavoriteUpdatedImplCopyWithImpl<T, $Res>
+    extends _$HomeStateCopyWithImpl<T, $Res, _$FavoriteUpdatedImpl<T>>
+    implements _$$FavoriteUpdatedImplCopyWith<T, $Res> {
+  __$$FavoriteUpdatedImplCopyWithImpl(_$FavoriteUpdatedImpl<T> _value,
+      $Res Function(_$FavoriteUpdatedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? favorites = null,
+  }) {
+    return _then(_$FavoriteUpdatedImpl<T>(
+      null == favorites
+          ? _value._favorites
+          : favorites // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FavoriteUpdatedImpl<T> implements FavoriteUpdated<T> {
+  const _$FavoriteUpdatedImpl(final List<ProductModel> favorites)
+      : _favorites = favorites;
+
+  final List<ProductModel> _favorites;
+  @override
+  List<ProductModel> get favorites {
+    if (_favorites is EqualUnmodifiableListView) return _favorites;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_favorites);
+  }
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.favoriteUpdated(favorites: $favorites)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FavoriteUpdatedImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other._favorites, _favorites));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_favorites));
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FavoriteUpdatedImplCopyWith<T, _$FavoriteUpdatedImpl<T>> get copyWith =>
+      __$$FavoriteUpdatedImplCopyWithImpl<T, _$FavoriteUpdatedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(String error) error,
+    required TResult Function(List<ProductModel> favorites) favoriteUpdated,
+  }) {
+    return favoriteUpdated(favorites);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(String error)? error,
+    TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
+  }) {
+    return favoriteUpdated?.call(favorites);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(String error)? error,
+    TResult Function(List<ProductModel> favorites)? favoriteUpdated,
+    required TResult orElse(),
+  }) {
+    if (favoriteUpdated != null) {
+      return favoriteUpdated(favorites);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
+  }) {
+    return favoriteUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
+  }) {
+    return favoriteUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    required TResult orElse(),
+  }) {
+    if (favoriteUpdated != null) {
+      return favoriteUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FavoriteUpdated<T> implements HomeState<T> {
+  const factory FavoriteUpdated(final List<ProductModel> favorites) =
+      _$FavoriteUpdatedImpl<T>;
+
+  List<ProductModel> get favorites;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FavoriteUpdatedImplCopyWith<T, _$FavoriteUpdatedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

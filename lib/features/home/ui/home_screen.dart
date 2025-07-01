@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_store_app/features/home/ui/widgets/category_screen.dart';
 import 'package:flutter_store_app/features/home/ui/widgets/custom_bottom_navigation_bar.dart';
-import 'package:flutter_store_app/features/home/ui/widgets/favorite_screen.dart';
+import 'package:flutter_store_app/features/favorite_items/ui/favorite_screen.dart';
 import 'package:flutter_store_app/features/home/ui/widgets/home_screen_body.dart';
 import 'package:flutter_store_app/features/home/ui/widgets/profile_screen.dart';
 
