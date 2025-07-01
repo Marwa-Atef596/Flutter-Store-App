@@ -1,3 +1,4 @@
+import 'package:flutter_store_app/features/home/data/model/product_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'home_state.freezed.dart';
 
@@ -7,4 +8,5 @@ class HomeState<T> with _$HomeState<T> {
   const factory HomeState.loading() = Loading;
   const factory HomeState.success(T data) = Success<T>;
   const factory HomeState.error({required String error}) = Error;
+  const factory HomeState.favoriteUpdated(List<ProductModel> favorites) = FavoriteUpdated;
 }
