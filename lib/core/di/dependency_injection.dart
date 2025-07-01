@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_store_app/core/networking/api_services.dart';
 import 'package:flutter_store_app/core/networking/dio_factory.dart';
+import 'package:flutter_store_app/features/category/data/repos/category_repo.dart';
+import 'package:flutter_store_app/features/category/logic/cubit/category_cubit.dart';
 import 'package:flutter_store_app/features/home/data/repos/home_product_repo.dart';
 import 'package:flutter_store_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:flutter_store_app/features/login/data/repo/login_repo.dart';
@@ -23,4 +25,7 @@ Future<void> setupGetit() async {
 
   getIt.registerLazySingleton<HomeProductRepo>(() => HomeProductRepo(getIt()));
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+
+  getIt.registerLazySingleton<CategoryRepo>(() => CategoryRepo(getIt()));
+  getIt.registerFactory<CategoryCubit>(() => CategoryCubit(getIt()));
 }

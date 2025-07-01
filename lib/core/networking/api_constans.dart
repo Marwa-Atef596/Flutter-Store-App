@@ -3,6 +3,7 @@ class ApiConstants {
   static const String login = 'auth/login';
   static const String signUp = 'users';
   static const String homeProduct = 'products';
+  static const String categoryName = 'products/categories';
 }
 
 class ApiErrors {
