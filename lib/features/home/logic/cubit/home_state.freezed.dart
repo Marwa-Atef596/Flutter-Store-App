@@ -23,6 +23,9 @@ mixin _$HomeState<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function(List<ProductModel> favorites) favoriteUpdated,
+    required TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)
+        cartUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +35,9 @@ mixin _$HomeState<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult? Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +47,9 @@ mixin _$HomeState<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +60,7 @@ mixin _$HomeState<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
+    required TResult Function(CartUpdated<T> value) cartUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +70,7 @@ mixin _$HomeState<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult? Function(CartUpdated<T> value)? cartUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +80,7 @@ mixin _$HomeState<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult Function(CartUpdated<T> value)? cartUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +153,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function(List<ProductModel> favorites) favoriteUpdated,
+    required TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)
+        cartUpdated,
   }) {
     return initial();
   }
@@ -153,6 +168,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult? Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
   }) {
     return initial?.call();
   }
@@ -165,6 +183,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -181,6 +202,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
+    required TResult Function(CartUpdated<T> value) cartUpdated,
   }) {
     return initial(this);
   }
@@ -193,6 +215,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult? Function(CartUpdated<T> value)? cartUpdated,
   }) {
     return initial?.call(this);
   }
@@ -205,6 +228,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult Function(CartUpdated<T> value)? cartUpdated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -264,6 +288,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function(List<ProductModel> favorites) favoriteUpdated,
+    required TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)
+        cartUpdated,
   }) {
     return loading();
   }
@@ -276,6 +303,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult? Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
   }) {
     return loading?.call();
   }
@@ -288,6 +318,9 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -304,6 +337,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
+    required TResult Function(CartUpdated<T> value) cartUpdated,
   }) {
     return loading(this);
   }
@@ -316,6 +350,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult? Function(CartUpdated<T> value)? cartUpdated,
   }) {
     return loading?.call(this);
   }
@@ -328,6 +363,7 @@ class _$LoadingImpl<T> implements Loading<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult Function(CartUpdated<T> value)? cartUpdated,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -415,6 +451,9 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function(List<ProductModel> favorites) favoriteUpdated,
+    required TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)
+        cartUpdated,
   }) {
     return success(data);
   }
@@ -427,6 +466,9 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult? Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
   }) {
     return success?.call(data);
   }
@@ -439,6 +481,9 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -455,6 +500,7 @@ class _$SuccessImpl<T> implements Success<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
+    required TResult Function(CartUpdated<T> value) cartUpdated,
   }) {
     return success(this);
   }
@@ -467,6 +513,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult? Function(CartUpdated<T> value)? cartUpdated,
   }) {
     return success?.call(this);
   }
@@ -479,6 +526,7 @@ class _$SuccessImpl<T> implements Success<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult Function(CartUpdated<T> value)? cartUpdated,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -573,6 +621,9 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function(List<ProductModel> favorites) favoriteUpdated,
+    required TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)
+        cartUpdated,
   }) {
     return error(this.error);
   }
@@ -585,6 +636,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult? Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
   }) {
     return error?.call(this.error);
   }
@@ -597,6 +651,9 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -613,6 +670,7 @@ class _$ErrorImpl<T> implements Error<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
+    required TResult Function(CartUpdated<T> value) cartUpdated,
   }) {
     return error(this);
   }
@@ -625,6 +683,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult? Function(CartUpdated<T> value)? cartUpdated,
   }) {
     return error?.call(this);
   }
@@ -637,6 +696,7 @@ class _$ErrorImpl<T> implements Error<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult Function(CartUpdated<T> value)? cartUpdated,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -740,6 +800,9 @@ class _$FavoriteUpdatedImpl<T> implements FavoriteUpdated<T> {
     required TResult Function(T data) success,
     required TResult Function(String error) error,
     required TResult Function(List<ProductModel> favorites) favoriteUpdated,
+    required TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)
+        cartUpdated,
   }) {
     return favoriteUpdated(favorites);
   }
@@ -752,6 +815,9 @@ class _$FavoriteUpdatedImpl<T> implements FavoriteUpdated<T> {
     TResult? Function(T data)? success,
     TResult? Function(String error)? error,
     TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult? Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
   }) {
     return favoriteUpdated?.call(favorites);
   }
@@ -764,6 +830,9 @@ class _$FavoriteUpdatedImpl<T> implements FavoriteUpdated<T> {
     TResult Function(T data)? success,
     TResult Function(String error)? error,
     TResult Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
     required TResult orElse(),
   }) {
     if (favoriteUpdated != null) {
@@ -780,6 +849,7 @@ class _$FavoriteUpdatedImpl<T> implements FavoriteUpdated<T> {
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
     required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
+    required TResult Function(CartUpdated<T> value) cartUpdated,
   }) {
     return favoriteUpdated(this);
   }
@@ -792,6 +862,7 @@ class _$FavoriteUpdatedImpl<T> implements FavoriteUpdated<T> {
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
     TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult? Function(CartUpdated<T> value)? cartUpdated,
   }) {
     return favoriteUpdated?.call(this);
   }
@@ -804,6 +875,7 @@ class _$FavoriteUpdatedImpl<T> implements FavoriteUpdated<T> {
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
     TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult Function(CartUpdated<T> value)? cartUpdated,
     required TResult orElse(),
   }) {
     if (favoriteUpdated != null) {
@@ -823,5 +895,207 @@ abstract class FavoriteUpdated<T> implements HomeState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FavoriteUpdatedImplCopyWith<T, _$FavoriteUpdatedImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CartUpdatedImplCopyWith<T, $Res> {
+  factory _$$CartUpdatedImplCopyWith(_$CartUpdatedImpl<T> value,
+          $Res Function(_$CartUpdatedImpl<T>) then) =
+      __$$CartUpdatedImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({List<ProductModel> cartItems, Map<int, int> cartQuantities});
+}
+
+/// @nodoc
+class __$$CartUpdatedImplCopyWithImpl<T, $Res>
+    extends _$HomeStateCopyWithImpl<T, $Res, _$CartUpdatedImpl<T>>
+    implements _$$CartUpdatedImplCopyWith<T, $Res> {
+  __$$CartUpdatedImplCopyWithImpl(
+      _$CartUpdatedImpl<T> _value, $Res Function(_$CartUpdatedImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cartItems = null,
+    Object? cartQuantities = null,
+  }) {
+    return _then(_$CartUpdatedImpl<T>(
+      cartItems: null == cartItems
+          ? _value._cartItems
+          : cartItems // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
+      cartQuantities: null == cartQuantities
+          ? _value._cartQuantities
+          : cartQuantities // ignore: cast_nullable_to_non_nullable
+              as Map<int, int>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CartUpdatedImpl<T> implements CartUpdated<T> {
+  const _$CartUpdatedImpl(
+      {required final List<ProductModel> cartItems,
+      required final Map<int, int> cartQuantities})
+      : _cartItems = cartItems,
+        _cartQuantities = cartQuantities;
+
+  final List<ProductModel> _cartItems;
+  @override
+  List<ProductModel> get cartItems {
+    if (_cartItems is EqualUnmodifiableListView) return _cartItems;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_cartItems);
+  }
+
+  final Map<int, int> _cartQuantities;
+  @override
+  Map<int, int> get cartQuantities {
+    if (_cartQuantities is EqualUnmodifiableMapView) return _cartQuantities;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_cartQuantities);
+  }
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.cartUpdated(cartItems: $cartItems, cartQuantities: $cartQuantities)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CartUpdatedImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other._cartItems, _cartItems) &&
+            const DeepCollectionEquality()
+                .equals(other._cartQuantities, _cartQuantities));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_cartItems),
+      const DeepCollectionEquality().hash(_cartQuantities));
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CartUpdatedImplCopyWith<T, _$CartUpdatedImpl<T>> get copyWith =>
+      __$$CartUpdatedImplCopyWithImpl<T, _$CartUpdatedImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(String error) error,
+    required TResult Function(List<ProductModel> favorites) favoriteUpdated,
+    required TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)
+        cartUpdated,
+  }) {
+    return cartUpdated(cartItems, cartQuantities);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(String error)? error,
+    TResult? Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult? Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
+  }) {
+    return cartUpdated?.call(cartItems, cartQuantities);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(String error)? error,
+    TResult Function(List<ProductModel> favorites)? favoriteUpdated,
+    TResult Function(
+            List<ProductModel> cartItems, Map<int, int> cartQuantities)?
+        cartUpdated,
+    required TResult orElse(),
+  }) {
+    if (cartUpdated != null) {
+      return cartUpdated(cartItems, cartQuantities);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(Loading<T> value) loading,
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Error<T> value) error,
+    required TResult Function(FavoriteUpdated<T> value) favoriteUpdated,
+    required TResult Function(CartUpdated<T> value) cartUpdated,
+  }) {
+    return cartUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(Loading<T> value)? loading,
+    TResult? Function(Success<T> value)? success,
+    TResult? Function(Error<T> value)? error,
+    TResult? Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult? Function(CartUpdated<T> value)? cartUpdated,
+  }) {
+    return cartUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(Loading<T> value)? loading,
+    TResult Function(Success<T> value)? success,
+    TResult Function(Error<T> value)? error,
+    TResult Function(FavoriteUpdated<T> value)? favoriteUpdated,
+    TResult Function(CartUpdated<T> value)? cartUpdated,
+    required TResult orElse(),
+  }) {
+    if (cartUpdated != null) {
+      return cartUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CartUpdated<T> implements HomeState<T> {
+  const factory CartUpdated(
+      {required final List<ProductModel> cartItems,
+      required final Map<int, int> cartQuantities}) = _$CartUpdatedImpl<T>;
+
+  List<ProductModel> get cartItems;
+  Map<int, int> get cartQuantities;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CartUpdatedImplCopyWith<T, _$CartUpdatedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

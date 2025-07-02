@@ -14,8 +14,12 @@ class ProductGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     final products = context.read<HomeCubit>().productList;
     return BlocBuilder<HomeCubit, HomeState>(
+      buildWhen: (previous, current) =>
+          current is Success || current is FavoriteUpdated,
       builder: (context, state) {
         return state.when(
+          cartUpdated: (cartItems,cartQuantities) =>
+              SliverToBoxAdapter(child: SizedBox.shrink()),
           favoriteUpdated: (favorites) => _buildGrid(products),
           initial: () => SliverToBoxAdapter(child: SizedBox.shrink()),
           loading: () => SliverToBoxAdapter(
