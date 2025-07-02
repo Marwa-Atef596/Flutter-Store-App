@@ -28,7 +28,9 @@ class LoginCubit extends Cubit<LoginState> {
       //save login
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('token', data.token);
-
+      await prefs.setString('user_name', nameController.text.toUpperCase());
+      await prefs.setString(
+          'user_email', '${nameController.text}@fakestore.com');
       emit(LoginState.success(data));
     }, failure: (error) {
       emit(

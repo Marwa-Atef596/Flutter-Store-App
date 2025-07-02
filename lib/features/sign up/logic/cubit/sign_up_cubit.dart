@@ -33,6 +33,8 @@ class SignUpCubit extends Cubit<SignUpState> {
 
       final prefs = await SharedPreferences.getInstance();
       await prefs.setInt('userId', signUpResponse.userId);
+      await prefs.setString('user_name', nameController.text.toUpperCase());
+      await prefs.setString('user_email', emailController.text);
       emit(SignUpState.success(signUpResponse));
     }, failure: (error) {
       emit(

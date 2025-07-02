@@ -6,7 +6,9 @@ import 'package:flutter_store_app/features/category/ui/category_screen.dart';
 import 'package:flutter_store_app/features/home/ui/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter_store_app/features/favorite_items/ui/favorite_screen.dart';
 import 'package:flutter_store_app/features/home/ui/widgets/home_screen_body.dart';
-import 'package:flutter_store_app/features/home/ui/widgets/profile_screen.dart';
+import 'package:flutter_store_app/features/profile/data/repo/profile_repo.dart';
+import 'package:flutter_store_app/features/profile/logic/cubit/profile_cubit.dart';
+import 'package:flutter_store_app/features/profile/ui/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,7 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
       value: getIt<CategoryCubit>()..fetchCategoriesName(),
       child: CategoryScreen(),
     ),
-    ProfileScreen(),
+    BlocProvider(
+      create: (context) => ProfileCubit(ProfileRepo())..loadProfile(),
+      child: ProfileScreen(),
+    ),
   ];
 
   @override
