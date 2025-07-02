@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_store_app/core/di/dependency_injection.dart';
 import 'package:flutter_store_app/core/routing/routes.dart';
+import 'package:flutter_store_app/features/cart/ui/cart_screen.dart';
 import 'package:flutter_store_app/features/category/logic/cubit/category_cubit.dart';
 import 'package:flutter_store_app/features/category/ui/widgets/product_category.dart';
 import 'package:flutter_store_app/features/home/ui/home_screen.dart';
@@ -36,7 +37,6 @@ class AppRouter {
         );
       case Routes.productCategory:
         final category = arguments as String;
-
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: getIt<CategoryCubit>()..fetchProductsByCategory(category),
@@ -44,6 +44,10 @@ class AppRouter {
               categoryName: category,
             ),
           ),
+        );
+      case Routes.cartScreen:
+        return MaterialPageRoute(
+          builder: (_) => CartScreen(),
         );
 
       default:

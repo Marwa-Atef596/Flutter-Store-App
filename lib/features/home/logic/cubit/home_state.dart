@@ -8,5 +8,10 @@ class HomeState<T> with _$HomeState<T> {
   const factory HomeState.loading() = Loading;
   const factory HomeState.success(T data) = Success<T>;
   const factory HomeState.error({required String error}) = Error;
-  const factory HomeState.favoriteUpdated(List<ProductModel> favorites) = FavoriteUpdated;
+  const factory HomeState.favoriteUpdated(List<ProductModel> favorites) =
+      FavoriteUpdated;
+  const factory HomeState.cartUpdated({
+    required List<ProductModel> cartItems,
+    required Map<int, int> cartQuantities,
+  }) = CartUpdated;
 }
