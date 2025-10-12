@@ -222,4 +222,19 @@ class HomeCubit extends Cubit<HomeState> {
       ));
     }
   }
+
+  void clearCart() async {
+    cartList.clear();
+    cartQuantities.clear();
+
+    // مسح من SharedPreferences
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('cart_items');
+    await prefs.remove('cart_quantities');
+
+    emit(HomeState.cartUpdated(
+      cartItems: List.from(cartList),
+      cartQuantities: Map.from(cartQuantities),
+    ));
+  }
 }
