@@ -10,11 +10,14 @@ import 'package:flutter_store_app/features/category/ui/widgets/product_category.
 import 'package:flutter_store_app/features/home/ui/home_screen.dart';
 import 'package:flutter_store_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter_store_app/features/login/ui/login_screen.dart';
+import 'package:flutter_store_app/features/payment/data/repo/payment_repo.dart';
+import 'package:flutter_store_app/features/payment/logic/cubit/payment_cubit.dart';
+import 'package:flutter_store_app/features/payment/networking/stripe_services.dart';
 import 'package:flutter_store_app/features/sign%20up/logic/cubit/sign_up_cubit.dart';
 import 'package:flutter_store_app/features/sign%20up/ui/sign_up_screen.dart';
 
 class AppRouter {
-  Route generateRoute(RouteSettings settings) {
+  Route? generateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.loginScreen:
@@ -47,17 +50,14 @@ class AppRouter {
         );
       case Routes.cartScreen:
         return MaterialPageRoute(
-          builder: (_) => CartScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => PaymentCubit(PaymentRepo(StripeServices())),
+            child: CartScreen(),
+          ),
         );
 
       default:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(
-              child: Text('no routes defiend for ${settings.name}'),
-            ),
-          ),
-        );
+        return null;
     }
   }
 }
